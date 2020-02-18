@@ -80,7 +80,7 @@ void system_init_task(void *pdata)
     dds.cursor = 0;
     trigger_lock.cursor =0;
     
-    //双向循环链表 我勒个擦
+    //双向循环链
     fft_wave.next_menu = &trigger;
     trigger.last_menu = &fft_wave;
     fft_wave.value_num = 2;
@@ -122,7 +122,7 @@ void system_init_task(void *pdata)
     Menu = OSFlagCreate(0,&err);
     
     Data_Process = OSFlagCreate(0,&err);
-    //menu信号量，保护全局变量 无比重要
+    //menu信号量，保护全局变量
     MenuSem = OSSemCreate(1);
     FirParamSem = OSSemCreate(1);
     //这里换成互斥信号量，避免优先级反转标记一下。
